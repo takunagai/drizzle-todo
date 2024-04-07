@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:generate": "pnpm drizzle-kit generate:pg --config drizzle.config.ts",
+    "db:push": "pnpm drizzle-kit push:pg --config drizzle.config.ts"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.0.5",
