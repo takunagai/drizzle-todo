@@ -6,7 +6,7 @@ const drizzleConfig = {
   breakpoints: true,
   driver: "pg",
   dbCredentials: {
-    connectionString: "ここにSupabaseのDATABASE_URIを入れる",
+    connectionString: "https://mywbwmbjwnxqtvuptkub.supabase.co",
   },
 } satisfies Config
 
