@@ -5,8 +5,9 @@ import {todos, type SelectTodo} from "@/db/schema"
 export default async function getTodos() {
     try {
         const selectTodos: SelectTodo[] = await db.select().from(todos)
-        if (!selectTodos) return []
+        return selectTodos || []
     } catch (error) {
         console.error(error)
+        throw error
     }
 }
