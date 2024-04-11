@@ -1,6 +1,6 @@
-// import { DetailTodo } from "@/features/todo/DetailTodo"
+import DetailTodo from "@/components/DetailTodo"
+// import { DeleteTodo } from "@/components/DeleteTodo"
 import getTodo from "../actions/getTodo"
-// import { DeleteTodo } from "@/features/todo/DeleteTodo"
 
 interface Props {
   id: string
@@ -15,7 +15,7 @@ const Page = async ({ params }: { params: Props }) => {
         {/*<DeleteTodo />*/}
       </div>
       <div className="max-w-[800px] w-full mx-auto">
-        {/*<DetailTodo todo={todo} />*/}
+        <DetailTodo todo={todo} />
       </div>
     </div>
   )
