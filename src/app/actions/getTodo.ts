@@ -8,16 +8,22 @@ type Props = {
 }
 
 export default async function getTodo(params: Props) {
+    const {id} = params
+    const idAsNumber = Number(id)
+
+    if (isNaN(idAsNumber)) {
+        throw new Error(`Invalid id: ${id}. It must be a number.`)
+    }
+
     try {
-        const {id} = params
-        const number_id = Number(id)
         const selectTodo: SelectTodo[]
-            = await db.select().from(todos).where(eq(todos.id, number_id)) // 配列が返る
-        if (!selectTodo) return []
+            = await db.select().from(todos).where(eq(todos.id, idAsNumber)) // 配列が返る
+
+        if (!selectTodo.length) return []
 
         return selectTodo
     } catch (error) {
         console.log(error)
-        throw new Error(String(error))
+        throw new Error(`Failed to get todo: ${String(error)}`)
     }
 }
