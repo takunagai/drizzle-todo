@@ -32,9 +32,11 @@ function DetailTodo({todo}: Props) {
     }
 
     useEffect(() => {
-        setTitle(todo[0].title)
-        setDescription(todo[0].description)
-        setAuthor(todo[0].author)
+        if (todo.length > 0) {
+            setTitle(todo[0].title)
+            setDescription(todo[0].description)
+            setAuthor(todo[0].author)
+        }
     }, [todo])
 
     return (
