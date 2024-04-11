@@ -30,7 +30,7 @@ function TodoTable({ todos }: Props) {
           return (
             <TableRow key={todo.id}>
               <TableCell className="cursor-pointer">
-                <Link href={`/${"1"}`}>
+                <Link href={`/${todo.id}`}>
                   <div className="flex flex-col">
                     <p>{todo.title}</p>
                     <p>{todo.author}</p>
