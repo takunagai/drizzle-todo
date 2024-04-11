@@ -4,13 +4,21 @@ import {eq} from "drizzle-orm"
 import {NextResponse} from "next/server"
 
 export async function POST(request: Request) {
-    const body = await request.json()
+    let body
+
+    try {
+        body = await request.json()
+    } catch (error) {
+        // Invalid JSON input
+        return NextResponse.json({error: 'Invalid JSON input'})
+    }
+
     const {id} = body
 
-    const todo
+    const deletedCount
         = await db
         .delete(todos)
-        .where(eq(id, id))
+        .where(eq(todos.id, id))
 
-    return NextResponse.json({todo})
+    return NextResponse.json({deletedCount})
 }
