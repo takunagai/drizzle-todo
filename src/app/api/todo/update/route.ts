@@ -15,7 +15,7 @@ export async function POST(request: Request) {
             description: description,
             author: author
         })
-        .where(eq(id, id))
+        .where(eq(todos.id, id))
         .returning()
 
     return NextResponse.json({todo})
